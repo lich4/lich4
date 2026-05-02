@@ -27,6 +27,15 @@ jobs:
           path: profile/langs.svg
           token: ${{ secrets.GITHUB_TOKEN }}
 
+      - name: Generate Lines of Code Metrics
+        uses: lowlighter/metrics@latest
+        with:
+          filename: profile/lines-of-code.svg
+          token: ${{ secrets.GITHUB_TOKEN }}
+          base: ""
+          plugin_lines: yes
+          plugin_lines_history_limit: 1
+
       - name: Commit cards
         run: |
           git config user.name "github-actions"
